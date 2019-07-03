@@ -29,8 +29,10 @@ class Scratch3MotionBlocks {
             motion_ifonedgebounce: this.ifOnEdgeBounce,
             motion_setrotationstyle: this.setRotationStyle,
             motion_changexby: this.changeX,
+            motion_reducexby: this.reduceX,
             motion_setx: this.setX,
             motion_changeyby: this.changeY,
+            motion_reduceyby: this.reduceY,
             motion_sety: this.setY,
             motion_xposition: this.getX,
             motion_yposition: this.getY,
@@ -248,6 +250,11 @@ class Scratch3MotionBlocks {
         util.target.setXY(util.target.x + dx, util.target.y);
     }
 
+    reduceX (args, util) {
+        const rx = Cast.toNumber(args.RX);
+        util.target.setXY(util.target.x - rx, util.target.y);
+    }
+
     setX (args, util) {
         const x = Cast.toNumber(args.X);
         util.target.setXY(x, util.target.y);
@@ -256,6 +263,11 @@ class Scratch3MotionBlocks {
     changeY (args, util) {
         const dy = Cast.toNumber(args.DY);
         util.target.setXY(util.target.x, util.target.y + dy);
+    }
+
+    reduceY (args, util) {
+        const ry = Cast.toNumber(args.RY);
+        util.target.setXY(util.target.x, util.target.y - ry);
     }
 
     setY (args, util) {
